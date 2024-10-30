@@ -1,4 +1,3 @@
-import FavoriteMovieIdb from '../data/favorite-movie-idb';
 import { createLikeMovieButtonTemplate, createUnlikeMovieButtonTemplate } from '../views/templates/template-creator';
 
 const LikeButtonPresenter = {
