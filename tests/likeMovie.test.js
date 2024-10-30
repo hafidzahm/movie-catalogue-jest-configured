@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 
-import LikeButtonInitiator from '../src/scripts/utils/like-button-presenter';
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
 import * as TestFactories from './helpers/testFactories';
 
@@ -48,10 +47,8 @@ describe('Liking A Movie', () => {
   });
 
   it('should not add a movie when it has no id', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      movie: {},
-    });
+    await TestFactories.createLikeButtonPresenterWithMovie([{ movie: {} }]);
+
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
     expect(await FavoriteMovieIdb.getAllMovies()).toEqual([]);
   });
