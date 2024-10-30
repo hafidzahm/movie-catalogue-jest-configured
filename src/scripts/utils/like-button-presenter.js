@@ -21,7 +21,7 @@ const LikeButtonPresenter = {
   },
 
   async _isMovieExist(id) {
-    const movie = await FavoriteMovieIdb.getMovie(id);
+    const movie = await this._favoriteMovies.getMovie(id);
     return !!movie;
   },
 
@@ -30,7 +30,7 @@ const LikeButtonPresenter = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteMovieIdb.putMovie(this._movie);
+      await this._favoriteMovies.putMovie(this._movie);
       this._renderButton();
     });
   },
