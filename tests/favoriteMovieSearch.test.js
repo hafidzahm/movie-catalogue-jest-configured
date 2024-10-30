@@ -18,6 +18,6 @@ describe('Searching movies', () => {
     const queryElement = document.getElementById('query');
     queryElement.value = 'film a';
     queryElement.dispatchEvent(new Event('change'));
-    expect(presenter.userQuery).toEqual('film a');
+    expect(presenter.latestQuery).toEqual('film a');
   });
 });
