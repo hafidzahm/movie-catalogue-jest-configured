@@ -20,4 +20,11 @@ describe('Searching movies', () => {
     queryElement.dispatchEvent(new Event('change'));
     expect(presenter.latestQuery).toEqual('film a');
   });
+  it('should ask the model to search for liked movies', () => {
+    // eslint-disable-next-line no-unused-vars
+    const presenter = new FavoriteMovieSearchPresenter();
+    const queryElement = document.getElementById('query');
+    queryElement.value = 'film a';
+    queryElement.dispatchEvent(new Event('change'));
+  });
 });
