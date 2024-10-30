@@ -2,10 +2,10 @@ import FavoriteMovieIdb from '../data/favorite-movie-idb';
 import { createLikeMovieButtonTemplate, createUnlikeMovieButtonTemplate } from '../views/templates/template-creator';
 
 const LikeButtonPresenter = {
-  async init({ likeButtonContainer, favoriteMovies, movie }) {
+  async init({ likeButtonContainer, movie }) {
     this._likeButtonContainer = likeButtonContainer;
     this._movie = movie;
-    this._favoriteMovies = favoriteMovies;
+    this._favoriteMovies = FavoriteMovieIdb;
 
     await this._renderButton();
   },
