@@ -25,13 +25,7 @@ describe('Liking A Movie', () => {
   });
 
   it('should be able to like the movie', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      movie: {
-        id: 1,
-      },
-    });
-
+    await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
     // Menyimulasikan widget ditekan.
     document.querySelector('#likeButton').dispatchEvent(new Event('click'));
     // Memastikan film berhasil disukai
@@ -43,12 +37,7 @@ describe('Liking A Movie', () => {
   });
 
   it('should not add a movie again when its already liked', async () => {
-    await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      movie: {
-        id: 1,
-      },
-    });
+    await TestFactories.createLikeButtonPresenterWithMovie({ id: 1 });
     // Tambahkan film dengan ID 1 ke daftar film yang disukai
     await FavoriteMovieIdb.putMovie({ id: 1 });
     // Simulasikan pengguna menekan tombol suka film
