@@ -52,7 +52,13 @@ describe('Searching movies', () => {
         id: 1,
         title: 'Satu',
       },
+      {
+        id: 2,
+        title: 'Dua',
+      },
     ]);
-    expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('Satu');
+    const movieTitles = document.querySelectorAll('.movie__title');
+    expect(movieTitles.item(0).textContent).toEqual('Satu');
+    expect(movieTitles.item(1).textContent).toEqual('Dua');
   });
 });
