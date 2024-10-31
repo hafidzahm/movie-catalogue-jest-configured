@@ -65,4 +65,20 @@ describe('Searching movies', () => {
     presenter._showFoundMovies([{ id: 1 }]);
     expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
   });
+  it('should show the movies found by Favorite Movies', () => {
+    FavoriteMovieIdb.searchMovies.mockImplementation((query) => {
+      if (query === 'film a') {
+        return [
+          { id: 111, title: 'film abc' },
+          { id: 222, title: 'ada juga film abcde' },
+          { id: 333, title: 'ini juga boleh film a' },
+        ];
+      }
+      return [];
+    });
+   
+    searchMovies('film a');
+   
+    expect(document.querySelectorAll('.movie').length).toEqual(3);
+  });
 });
