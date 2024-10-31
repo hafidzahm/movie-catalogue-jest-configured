@@ -3,7 +3,7 @@ class FavoriteMovieSearchPresenter {
     this._listenToSearchRequestByUser();
     this._favoriteMovies = favoriteMovies;
   }
- 
+
   _listenToSearchRequestByUser() {
     this._queryElement = document.getElementById('query');
     this._queryElement.addEventListener('change', (event) => {
