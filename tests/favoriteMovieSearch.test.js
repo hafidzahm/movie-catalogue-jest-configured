@@ -46,4 +46,11 @@ describe('Searching movies', () => {
 
     expect(FavoriteMovieIdb.searchMovies).toHaveBeenCalledWith('film a');
   });
+  it('should show the found movies', () => {
+    presenter._showFoundMovies([{ id: 1 }]);
+
+    const foundMovies = document.querySelectorAll('.movie');
+
+    expect(foundMovies.length).toEqual(1);
+  });
 });

@@ -16,6 +16,10 @@ class FavoriteMovieSearchPresenter {
     this._favoriteMovies.searchMovies(this.latestQuery);
   }
 
+  _showFoundMovies(movies) {
+    document.querySelector('.movies').innerHTML = '<li class="movie"></li>';
+  }
+
   get latestQuery() {
     return this._latestQuery;
   }
