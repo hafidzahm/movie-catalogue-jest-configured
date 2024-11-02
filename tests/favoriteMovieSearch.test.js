@@ -37,11 +37,13 @@ describe('Searching movies', () => {
   });
 
   it('should be able to capture the query typed by the user', () => {
+    FavoriteMovieIdb.searchMovies.mockImplementation(() => []);
     searchMovies('film a');
 
     expect(presenter.latestQuery).toEqual('film a');
   });
   it('should ask the model to search for liked movies', () => {
+    FavoriteMovieIdb.searchMovies.mockImplementation(() => []);
     searchMovies('film a');
 
     expect(FavoriteMovieIdb.searchMovies).toHaveBeenCalledWith('film a');
