@@ -67,11 +67,14 @@ describe('Searching movies', () => {
     presenter._showFoundMovies([{ id: 1 }]);
     expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
   });
-  it('should show the movies found by Favorite Movies', (done) => {
+  it('should show the name of the movies found by Favorite Movies', (done) => {
     document
       .getElementById('movie-search-container')
       .addEventListener('movies:searched:updated', () => {
-        expect(document.querySelectorAll('.movie').length).toEqual(3);
+        const movieTitles = document.querySelectorAll('.movie__title');
+        expect(movieTitles.item(0).textContent).toEqual('film abc');
+        expect(movieTitles.item(1).textContent).toEqual('ada juga film abcde');
+        expect(movieTitles.item(2).textContent).toEqual('ini juga boleh film a');
         done();
       });
     FavoriteMovieIdb.searchMovies.mockImplementation((query) => {
