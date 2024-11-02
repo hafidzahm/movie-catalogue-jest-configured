@@ -67,7 +67,7 @@ describe('Searching movies', () => {
     presenter._showFoundMovies([{ id: 1 }]);
     expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
   });
-  fit('should show the movies found by Favorite Movies', (done) => {
+  it('should show the movies found by Favorite Movies', (done) => {
     document
       .getElementById('movie-search-container')
       .addEventListener('movies:searched:updated', () => {
