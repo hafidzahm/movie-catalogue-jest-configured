@@ -11,7 +11,7 @@ class FavoriteMovieSearchPresenter {
     });
   }
 
-  _searchMovies(latestQuery) {
+  async _searchMovies(latestQuery) {
     this._latestQuery = latestQuery;
     const foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery);
     this._showFoundMovies(foundMovies);
