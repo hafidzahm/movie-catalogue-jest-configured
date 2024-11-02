@@ -18,6 +18,7 @@ class FavoriteMovieSearchPresenter {
   }
 
   _showFoundMovies(movies) {
+    console.log(movies);
     const html = movies.reduce(
       (carry, movie) => carry.concat(`
         <li class="movie">

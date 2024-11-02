@@ -67,7 +67,7 @@ describe('Searching movies', () => {
     presenter._showFoundMovies([{ id: 1 }]);
     expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
   });
-  it('should show the movies found by Favorite Movies', () => {
+  fit('should show the movies found by Favorite Movies', () => {
     FavoriteMovieIdb.searchMovies.mockImplementation((query) => {
       if (query === 'film a') {
         return [
