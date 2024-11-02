@@ -1,10 +1,11 @@
-import { spyOn } from 'jest-mock';
+
 import FavoriteMovieSearchPresenter
   from '../src/scripts/views/pages/liked-movies/favorite-movie-search-presenter';
 import FavoriteMovieIdb from '../src/scripts/data/favorite-movie-idb';
  
 describe('Searching movies', () => {
   let presenter;
+  let favoriteMovies;
  
   const searchMovies = (query) => {
     const queryElement = document.getElementById('query');
@@ -26,9 +27,12 @@ describe('Searching movies', () => {
   };
  
   const constructPresenter = () => {
-    spyOn(FavoriteMovieIdb, 'searchMovies');
+    favoriteMovies = {
+      getAllMovies: jest.fn(),
+      searchMovies: jest.fn(),
+    };
     presenter = new FavoriteMovieSearchPresenter({
-      favoriteMovies: FavoriteMovieIdb,
+      favoriteMovies,
     });
   };
  
