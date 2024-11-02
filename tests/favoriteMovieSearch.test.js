@@ -67,7 +67,13 @@ describe('Searching movies', () => {
     presenter._showFoundMovies([{ id: 1 }]);
     expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
   });
-  fit('should show the movies found by Favorite Movies', () => {
+  fit('should show the movies found by Favorite Movies', (done) => {
+    document
+      .getElementById('movie-search-container')
+      .addEventListener('movies:searched:updated', () => {
+        expect(document.querySelectorAll('.movie').length).toEqual(3);
+        done();
+      });
     FavoriteMovieIdb.searchMovies.mockImplementation((query) => {
       if (query === 'film a') {
         return [
@@ -78,9 +84,6 @@ describe('Searching movies', () => {
       }
       return [];
     });
-   
     searchMovies('film a');
-   
-    expect(document.querySelectorAll('.movie').length).toEqual(3);
   });
 });

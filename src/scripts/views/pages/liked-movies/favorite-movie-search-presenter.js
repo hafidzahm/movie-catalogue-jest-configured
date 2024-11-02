@@ -27,8 +27,14 @@ class FavoriteMovieSearchPresenter {
       `),
       '',
     );
+
+
     document.querySelector('.movies').innerHTML = html;
-  }
+
+    document
+    .getElementById('movie-search-container')
+    .dispatchEvent(new Event('movies:searched:updated'));
+}
 
   get latestQuery() {
     return this._latestQuery;
