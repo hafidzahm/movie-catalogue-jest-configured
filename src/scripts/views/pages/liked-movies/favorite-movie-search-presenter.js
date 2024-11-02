@@ -12,7 +12,7 @@ class FavoriteMovieSearchPresenter {
   }
 
   async _searchMovies(latestQuery) {
-    this._latestQuery = latestQuery;
+    this._latestQuery = latestQuery.trim();
     const foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery);
     this._showFoundMovies(foundMovies);
   }
@@ -28,13 +28,12 @@ class FavoriteMovieSearchPresenter {
       '',
     );
 
-
     document.querySelector('.movies').innerHTML = html;
 
     document
-    .getElementById('movie-search-container')
-    .dispatchEvent(new Event('movies:searched:updated'));
-}
+      .getElementById('movie-search-container')
+      .dispatchEvent(new Event('movies:searched:updated'));
+  }
 
   get latestQuery() {
     return this._latestQuery;
